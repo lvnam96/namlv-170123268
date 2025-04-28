@@ -4,6 +4,7 @@ import { baseUrl } from '@/robots';
 import ScrollToTopAuto from '@/components/ScrollToTopAuto';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="text-black bg-white dark:text-white dark:bg-black">
       <body className="antialiased">
+        <Toaster />
         <Navbar />
         {children}
         <ScrollToTopAuto />
