@@ -41,6 +41,7 @@ const cx = (...classes) => classes.filter(Boolean).join(' ');
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="text-black bg-white dark:text-white dark:bg-black">
+      <link rel="manifest" href="/site.webmanifest" />
       <body className="antialiased">
         <Toaster />
         <Navbar />
