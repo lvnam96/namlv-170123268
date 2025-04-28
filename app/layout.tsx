@@ -1,24 +1,23 @@
 import './global.css';
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { baseUrl } from './robots';
+import { baseUrl } from '@/robots';
+import ScrollToTopAuto from '@/components/ScrollToTopAuto';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'DevSoft - Giải pháp công nghệ đổi mới và sáng tạo',
+    template: '%s | DevSoft - Giải pháp công nghệ đổi mới và sáng tạo',
   },
-  description: 'This is my portfolio.',
+  description:
+    'DevSoft Vietnam là công ty cung cấp các giải pháp phần mềm và công nghệ, góp phần hỗ trợ quá trình chuyển đổi số của quốc gia.',
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'DevSoft - Giải pháp công nghệ đổi mới và sáng tạo',
+    description:
+      'DevSoft Vietnam là công ty cung cấp các giải pháp phần mềm và công nghệ, góp phần hỗ trợ quá trình chuyển đổi số của quốc gia.',
     url: baseUrl,
-    siteName: 'My Portfolio',
-    locale: 'en_US',
+    siteName: 'DevSoft Vietnam',
+    locale: 'vi_VN',
     type: 'website',
   },
   robots: {
@@ -38,15 +37,11 @@ const cx = (...classes) => classes.filter(Boolean).join(' ');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={cx('text-black bg-white dark:text-white dark:bg-black', GeistSans.variable, GeistMono.variable)}
-    >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+    <html lang="en" className="text-black bg-white dark:text-white dark:bg-black">
+      <body className="antialiased">
+        <main>
           {children}
-          <Analytics />
-          <SpeedInsights />
+          <ScrollToTopAuto />
         </main>
       </body>
     </html>
