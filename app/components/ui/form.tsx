@@ -20,6 +20,7 @@ type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
+  id: string;
   name: TName;
 };
 
@@ -31,8 +32,9 @@ const FormField = <
 >({
   ...props
 }: ControllerProps<TFieldValues, TName>) => {
+  const id = useId();
   return (
-    <FormFieldContext.Provider value={{ name: props.name }}>
+    <FormFieldContext.Provider value={{ id, name: props.name }}>
       <Controller {...props} />
     </FormFieldContext.Provider>
   );
@@ -40,7 +42,6 @@ const FormField = <
 
 const useFormField = () => {
   const fieldContext = use(FormFieldContext);
-  const itemContext = use(FormItemContext);
   const { getFieldState, formState } = useFormContext();
 
   const fieldState = getFieldState(fieldContext.name, formState);
@@ -49,7 +50,7 @@ const useFormField = () => {
     throw new Error('useFormField should be used within <FormField>');
   }
 
-  const { id } = itemContext;
+  const { id } = fieldContext;
 
   return {
     id,
@@ -61,20 +62,8 @@ const useFormField = () => {
   };
 };
 
-type FormItemContextValue = {
-  id: string;
-};
-
-const FormItemContext = createContext<FormItemContextValue>({} as FormItemContextValue);
-
 const FormItem = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
-  const id = useId();
-
-  return (
-    <FormItemContext.Provider value={{ id }}>
-      <div className={cn('space-y-2', className)} {...props} />
-    </FormItemContext.Provider>
-  );
+  return <div className={cn('space-y-2', className)} {...props} />;
 };
 FormItem.displayName = 'FormItem';
 
