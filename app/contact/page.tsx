@@ -84,16 +84,16 @@ const Contact = () => {
       const now = new Date();
       await Promise.all([
         await emailjs.send(
-          process.env.PUBLIC_EMAILJS_SERVICE_ID as string,
-          process.env.PUBLIC_EMAILJS_TEMPLATE_ID_NOTIFY_STAFF as string,
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_NOTIFY_STAFF as string,
           {
             ...data,
             time: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`,
           }
         ),
         await emailjs.send(
-          process.env.PUBLIC_EMAILJS_SERVICE_ID as string,
-          process.env.PUBLIC_EMAILJS_TEMPLATE_ID_CONFIRM_USER as string,
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_CONFIRM_USER as string,
           {
             ...data,
           }
@@ -120,7 +120,7 @@ const Contact = () => {
 
   useEffect(() => {
     emailjs.init({
-      publicKey: process.env.PUBLIC_EMAILJS_PUBLIC_KEY,
+      publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       blockHeadless: true,
       limitRate: {
         // Set the limit rate for the application
