@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 import CTA from '@/components/CTA';
 import Link from 'next/link';
@@ -69,8 +67,6 @@ const Projects = () => {
         <meta name="keywords" content="dự án phần mềm, portfolio công nghệ, devsoft, web app, mobile app, e-commerce" />
         <link rel="canonical" href={`${baseUrl}/projects`} />
       </Helmet>
-
-      <Navbar />
 
       <main>
         {/* Hero Section */}
@@ -175,8 +171,6 @@ const Projects = () => {
 
         <CTA />
       </main>
-
-      <Footer />
     </>
   );
 };

@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import { ArrowLeft } from 'lucide-react';
 import { projects } from '@/data/projects';
@@ -22,7 +20,11 @@ const ProjectDetail = async ({ params }: { params: Promise<{ slug: string }> }) 
   if (!project) {
     return (
       <>
-        <Navbar />
+        <title>Chi tiết dự án | DevSoft - Giải pháp công nghệ đổi mới</title>
+        <meta name="description" content="Mô tả dự án" />
+        <meta name="keywords" content="devsoft, dự án" />
+        <link rel="canonical" href={`${baseUrl}/projects`} />
+
         <div className="container mx-auto px-4 pt-40 pb-20 text-center">
           <h1 className="text-3xl font-bold mb-6">Dự án không tìm thấy</h1>
           <p className="mb-8 text-gray-600">Dự án bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển.</p>
@@ -30,7 +32,6 @@ const ProjectDetail = async ({ params }: { params: Promise<{ slug: string }> }) 
             <ArrowLeft size={16} className="mr-2" /> Quay lại trang dự án
           </Link>
         </div>
-        <Footer />
       </>
     );
   }
@@ -43,8 +44,6 @@ const ProjectDetail = async ({ params }: { params: Promise<{ slug: string }> }) 
       <meta name="description" content={project.shortDescription} />
       <meta name="keywords" content={`${project.title}, devsoft, dự án, ${project.technologies.join(', ')}`} />
       <link rel="canonical" href={`${baseUrl}/projects/${project.slug}`} />
-
-      <Navbar />
 
       <main>
         {/* Hero Section */}
@@ -180,8 +179,6 @@ const ProjectDetail = async ({ params }: { params: Promise<{ slug: string }> }) 
 
         <CTA />
       </main>
-
-      <Footer />
     </>
   );
 };

@@ -1,6 +1,4 @@
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { Check, Code } from 'lucide-react';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 import { baseUrl } from '@/robots';
 import { services, workflowSteps } from '@/data/services';
@@ -58,8 +56,6 @@ const Services = () => {
       />
       <meta name="keywords" content="dịch vụ phần mềm, phát triển web, ứng dụng di động, đám mây, AI, bảo mật" />
       <link rel="canonical" href={`${baseUrl}/services`} />
-
-      <Navbar />
 
       <main>
         {/* Hero Section */}
@@ -136,8 +132,6 @@ const Services = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

@@ -1,5 +1,3 @@
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import { Shield, Eye, LightbulbIcon, Goal, Award, HeartHandshake } from 'lucide-react';
 import { baseUrl } from '@/robots';
@@ -70,8 +68,6 @@ const About = () => {
       />
       <meta name="keywords" content="devsoft, về chúng tôi, công ty phần mềm, đội ngũ phát triển, công nghệ việt nam" />
       <link rel="canonical" href={`${baseUrl}/about`} />
-
-      <Navbar />
 
       <main>
         {/* Hero Section */}
@@ -152,8 +148,6 @@ const About = () => {
 
         <CTA />
       </main>
-
-      <Footer />
     </>
   );
 };

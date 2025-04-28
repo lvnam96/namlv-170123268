@@ -1,9 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { cn } from '@/lib/utils';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -143,8 +140,6 @@ const Contact = () => {
         <link rel="canonical" href={`${baseUrl}/contact`} />
       </Helmet>
 
-      <Navbar />
-
       <main>
         {/* Hero Section */}
         <section className="pt-28 pb-16 bg-gray-50">
@@ -273,8 +268,6 @@ const Contact = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };
